@@ -148,11 +148,13 @@ search_btn.addEventListener("click", async () => {
     container2.replaceChildren();
 
     try {
-        const carUrl =
-            `http://localhost:3000/api/car` +
-            `?name=${encodeURIComponent(carName)}` +
-            `&model=${encodeURIComponent(carModel)}` +
-            `&year=${encodeURIComponent(carYear)}`;
+        const API_BASE_URL = "https://jb-dealership-api.onrender.com";
+
+const carUrl =
+    `${API_BASE_URL}/api/car` +
+    `?name=${encodeURIComponent(carName)}` +
+    `&model=${encodeURIComponent(carModel)}` +
+    `&year=${encodeURIComponent(carYear)}`;
 
         const carResponse = await fetch(carUrl);
 
@@ -176,10 +178,10 @@ search_btn.addEventListener("click", async () => {
 
         try {
             const imageUrl =
-                `http://localhost:3000/api/car-image` +
-                `?make=${encodeURIComponent(carName)}` +
-                `&model=${encodeURIComponent(carModel)}` +
-                `&year=${encodeURIComponent(carYear)}`;
+    `${API_BASE_URL}/api/car-image` +
+    `?make=${encodeURIComponent(carName)}` +
+    `&model=${encodeURIComponent(carModel)}` +
+    `&year=${encodeURIComponent(carYear)}`;
 
             const imageResponse = await fetch(imageUrl);
 
