@@ -12,7 +12,11 @@ app.use(express.json());
 
 
 
-const API_KEY = process.env.CARSXE_API_KEY;;
+const API_KEY = process.env.CARSXE_API_KEY;
+
+if (!API_KEY) {
+    console.error("Missing CARSXE_API_KEY environment variable");
+}
 
 
 
@@ -137,12 +141,9 @@ app.get("/api/car-image", async (req, res) => {
 
 
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
 
-    console.log("----------------------------------");
+app.listen(PORT, "0.0.0.0", () => {
     console.log("JB Dealership Backend");
-    console.log("Server running on port 3000");
-    console.log("http://localhost:3000");
-    console.log("----------------------------------");
-
+    console.log(`Server running on port ${PORT}`);
 });
